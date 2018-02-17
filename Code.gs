@@ -1,27 +1,37 @@
 function doPost(e){
-  console.log(e);
-  return ContentService.createTextOutput('ALL GOOD');
+  console.log(e.postData.contents);
+  console.log(typeof(e.postData.contents));
+  postTester(e.postData.contents);
+  return ContentService.createTextOutput();
 }
+
 
 function doGet(e){
   return HtmlService.createHtmlOutputFromFile('Index');
 }
 
-function postSimulator(content){
+
+function postTester(content){
   c = JSON.parse(content)
-  //Logger.log(c);
-  return c
+  var event = new CalendlyEvent(c);
+  console.log(event.name);
+  console.log(event.month);
+  console.log(event.day);
+  console.log(event.weekDay);
+  console.log(event.time);
+  console.log(event.eventType)
 }
 
+
 function main(){
-  var j = postSimulator(content);
+  //var j = ;
   var event = new CalendlyEvent(j);
-  Logger.log(event.name);
-  Logger.log(event.month);
-  Logger.log(event.day);
-  Logger.log(event.weekDay);
-  Logger.log(event.time);
-  Logger.log(event.eventType);
+  Console.log(event.name);
+  Console.log(event.month);
+  Console.log(event.day);
+  Console.log(event.weekDay);
+  Console.log(event.time);
+  Consle.log(event.eventType);
 }
 
 var date = '10:15am - Thursday, February 1, 2018'
