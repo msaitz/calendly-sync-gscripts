@@ -1,4 +1,4 @@
-function doPost(e){
+function doPost(e) {
   console.log(e.postData.contents);
   console.log(typeof(e.postData.contents));
   postTester(e.postData.contents);
@@ -6,12 +6,12 @@ function doPost(e){
 }
 
 
-function doGet(e){
+function doGet(e) {
   return HtmlService.createHtmlOutputFromFile('Index');
 }
 
 
-function postTester(content){
+function postTester(content) {
   c = JSON.parse(content)
   var event = new CalendlyEvent(c);
   console.log(event.name);
@@ -23,20 +23,17 @@ function postTester(content){
 }
 
 
-function main(){
-  //var j = ;
-  var event = new CalendlyEvent(j);
-  Console.log(event.name);
-  Console.log(event.month);
-  Console.log(event.day);
-  Console.log(event.weekDay);
-  Console.log(event.time);
-  Consle.log(event.eventType);
+function main() {
+  var c = JSON.parse(content)
+  var event = new CalendlyEvent(c);
+  Logger.log(event.time);
+  Logger.log(event.name);
+  //Logger.log(Utilities.formatDate(event.date, 'GMT', 'yyyy-MM-dd\'T\'HH:mm:ss.SSS\'Z\''))
 }
 
-var date = '10:15am - Thursday, February 1, 2018'
-var content = '{"time": "2018-01-21T20:31:49Z", "event": "invitee.created", "payload": {"event_type": {"kind": "1-on-1", "slug": "mobilehandover", "name": "ICT Mobile Phone Handover", "duration": 15}, "tracking": {"utm_term": null, "utm_content": null, "utm_medium": null, "utm_campaign": null, "salesforce_uuid": null, "utm_source": null}, "old_event": null, "questions_and_answers": [{"answer": "5678", "question": "Extension Number"}, {"answer": "Yes", "question": "Is this for a mobile handover?"}], "questions_and_responses": {"1_response": "5678", "2_response": "Yes", "1_question": "Extension Number", "2_question": "Is this for a mobile handover?"}, "invitee": {"is_reschedule": false, "name": "Test McTest", "canceled": false, "first_name": null, "canceled_at": null, "canceler_name": null, "last_name": null, "cancel_reason": null, "uuid": "EHBJOB5ZASPYJIU6", "timezone": "Europe/London", "payments": [], "created_at": "2018-01-21T20:31:49+00:00", "email": "test@test.com"}, "old_invitee": null, "event": {"invitee_start_time_pretty": "10:15am - Thursday, February 1, 2018", "assigned_to": ["Hackney ICT"], "canceled": false, "location": "Robert House, 6 - 15 Florefield Road, E8 1DT", "invitee_start_time": "2018-02-01T10:15:00+00:00", "start_time_pretty": "10:15am - Thursday, February 1, 2018", "end_time_pretty": "10:30am - Thursday, February 1, 2018", "created_at": "2018-01-21T20:31:49+00:00", "cancel_reason": null, "uuid": "CCBJEZA7NNRA46ZQ", "canceled_at": null, "canceler_name": null, "invitee_end_time_pretty": "10:30am - Thursday, February 1, 2018", "end_time": "2018-02-01T10:30:00+00:00", "extended_assigned_to": [{"primary": true, "email": "ict.servicedesk@hackney.gov.uk", "name": "Hackney ICT"}], "start_time": "2018-02-01T10:15:00+00:00", "invitee_end_time": "2018-02-01T10:30:00+00:00"}, "new_invitee": null, "new_event": null}}'
-;
+var date = '10:59am - Thursday, February 1, 2018'
+
+var content = '{"event":"invitee.created","time":"2018-02-17T18:23:45Z","payload":{"event_type":{"uuid":"ACFDOGPG3JHVJWI2","kind":"One-on-One","slug":"mobilehandover","name":"ICT Mobile Phone Handover","duration":15,"owner":{"type":"users","uuid":"CBEBDCLSER7AREEH"}},"event":{"uuid":"DHFINH3FNNMPKK43","assigned_to":["Hackney ICT"],"extended_assigned_to":[{"name":"Hackney ICT","email":"ict.servicedesk@hackney.gov.uk","primary":true}],"start_time":"2018-03-01T11:30:00+00:00","start_time_pretty":"11:30am - Thursday, March 1, 2018","invitee_start_time":"2018-03-01T11:30:00+00:00","invitee_start_time_pretty":"11:30am - Thursday, March 1, 2018","end_time":"2018-03-01T11:45:00+00:00","end_time_pretty":"11:45am - Thursday, March 1, 2018","invitee_end_time":"2018-03-01T11:45:00+00:00","invitee_end_time_pretty":"11:45am - Thursday, March 1, 2018","created_at":"2018-02-17T18:23:45+00:00","location":"ICT Ground Floor, Robert House, 6 - 15 Florefield Road, E8 1DT","canceled":false,"canceler_name":null,"cancel_reason":null,"canceled_at":null},"invitee":{"uuid":"BFCMMVXJRYZUJYLM","first_name":null,"last_name":null,"name":"Miguel","email":"test@test.com","timezone":"Europe\/London","created_at":"2018-02-17T18:23:45+00:00","is_reschedule":false,"payments":[],"canceled":false,"canceler_name":null,"cancel_reason":null,"canceled_at":null},"questions_and_answers":[{"question":"Is this for a mobile handover?","answer":"No"}],"questions_and_responses":{"1_question":"Is this for a mobile handover?","1_response":"No"},"tracking":{"utm_campaign":null,"utm_source":null,"utm_medium":null,"utm_content":null,"utm_term":null,"salesforce_uuid":null},"old_event":null,"old_invitee":null,"new_event":null,"new_invitee":null}}';
 
 
 
