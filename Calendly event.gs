@@ -5,14 +5,14 @@ function CalendlyEvent(data) {
   this.formattedTitle = Utilities.formatDate(this.date, 'GMT', 'MMM dd-MM-YY')
   this.month = Utilities.formatDate(this.date, 'GMT', 'M');
   this.time = Utilities.formatDate(this.date, 'GMT', 'HH:mm');
-  this.day = Utilities.formatDate(this.date, 'GMT', 'F');
+  this.day = Utilities.formatDate(this.date, 'GMT', 'd');
   this.weekDay = this.date.getDay() - 1;
   this.timeIndex = getTimeIndex(this.time);
   this.eventType = null;
   
   var type = data.payload.event_type.slug;
   switch (type) {
-    case '15 min':
+    case '15min':
       this.eventType = 'Surgery';
       break;
     case 'mobilehandover':
