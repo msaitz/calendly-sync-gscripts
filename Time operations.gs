@@ -57,15 +57,3 @@ function getNextMonday(dateDay) {
   }
   return new Date(dateDay.getYear(), dateDay.getMonth(), (dateDay.getDate() + 7));
 }
-
-
-// testing 
-function dateParserTest() {
-  var day = dateParser(compact);
-  //Logger.log(Utilities.formatDate(day, 'GMT', 'E'));
-  //getFirstDayWeek(day);
-  //Logger.log(Utilities.formatDate(day, 'GMT', 'E'));
-  getFullWeek(day);
-  Logger.log(getNextMonday(day))
-}
-var compact = '2018-02-05T11:15:00+00:00';

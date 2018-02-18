@@ -49,8 +49,6 @@ function setSheetWeekTitle(sheet, event) {
     var range = sheet.getRange(DT_ROW, DT_COL[i]);
     range.setValue(Utilities.formatDate(day, 'GMT', 'EEEE') + ' ' + day.getDate() + suffix);
   });
-  
-  
 }
 
 
@@ -67,8 +65,7 @@ function getSuffix(day) {
       return 'rd';
     default:
       return 'th';
-  }
-      
+  }   
 }
 
 
@@ -83,10 +80,4 @@ function isSheetInSpreadsheet(title) {
     }
   });
   return found;
-}
-
-
-// TESTING
-function m() { 
-  
 }
