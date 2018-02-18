@@ -1,12 +1,13 @@
 function CalendlyEvent(data) { 
   this.name = data.payload.invitee.name;
-  this.date = dateParser(data.payload.event.start_time_pretty, data.payload.event.invitee_start_time);
+  this.canceled = data.payload.invitee.canceled;
+  this.date = dateParser(data.payload.event.invitee_start_time);
+  this.formattedTitle = Utilities.formatDate(this.date, 'GMT', 'MMM dd-MM-YY')
   this.month = Utilities.formatDate(this.date, 'GMT', 'M');
   this.time = Utilities.formatDate(this.date, 'GMT', 'HH:mm');
   this.day = Utilities.formatDate(this.date, 'GMT', 'F');
-  this.weekDay = Utilities.formatDate(this.date, 'GMT', 'u');
+  this.weekDay = this.date.getDay() - 1;
   this.timeIndex = getTimeIndex(this.time);
-  this.cancel = false;
   this.eventType = null;
   
   var type = data.payload.event_type.slug;

@@ -67,6 +67,5 @@ function dateParserTest() {
   //Logger.log(Utilities.formatDate(day, 'GMT', 'E'));
   getFullWeek(day);
   Logger.log(getNextMonday(day))
-  
 }
 var compact = '2018-02-05T11:15:00+00:00';
