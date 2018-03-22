@@ -1,3 +1,12 @@
+/*
+*  calendly-sync-gscripts
+*  A Google Scripts app that imports events from calendly.com
+*  to a Service Support Team Gsheets timetable
+*
+*  Miguel Saitz 2018
+*/
+
+
 function doPost(e) {
   console.log(e.postData.contents);
   var request = JSON.parse(e.postData.contents);

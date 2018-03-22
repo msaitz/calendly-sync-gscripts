@@ -10,7 +10,7 @@ function eventHandler(event) {
   var firstDayWeek = getFirstDayWeek(event.date);
   var title = Utilities.formatDate(firstDayWeek, Session.getScriptTimeZone(), 'MMM dd-MM-YY');
   console.log(event.name);
-  
+
   if (!isSheetInSpreadsheet(title)) {
     setSheetWeekTitle(duplicateWorkbook(title), firstDayWeek);
   }
@@ -56,13 +56,9 @@ function setSheetWeekTitle(sheet, eventDate) {
   // Set day name and number for each daily timetable
   var week = getFullWeek(eventDate);
   
-  // testing
-  console.log(week);
-  
   week.forEach(function(day, i) {
     var suffix = getSuffix(day);
     var range = sheet.getRange(DT_ROW, DT_COL[i]);
-    console.log(range + 'test');
     
     range.setValue(Utilities.formatDate(day, Session.getScriptTimeZone(), 'EEEE') + ' ' + day.getDate() + suffix);
   });
@@ -73,13 +69,12 @@ function isSheetInSpreadsheet(title) {
   var spreadsheet = SpreadsheetApp.openById(SPREADSHEETID);
   sheets = spreadsheet.getSheets();
   
-  var found = false;
   sheets.forEach(function(sheet) {
     if (sheet.getName() == title) {
-      found = true;
+      return true;
     }
   });
-  return found;
+  return false;
 }
 
 
@@ -87,8 +82,6 @@ function validateCancelation(sheet, event) {
   var range = sheet.getRange(EV_ROW + event.timeIndex, EV_COL[event.weekDay]);
   cellContent = range.getValue();
   expectedContent = event.eventType + ': ' + event.name;
-  Logger.log(cellContent);
-  Logger.log(expectedContent);
   
   if (cellContent !== expectedContent) {
     console.log('Cancelation validation has failed!')

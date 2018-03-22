@@ -12,6 +12,7 @@ function dateParser(dateString) {
 }
 
 
+// 
 function getTimeIndex(timeString) {
   var timeSlots = getTimeSlots();
   return timeSlots[timeString];   
